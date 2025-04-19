@@ -9,13 +9,15 @@ const handleDomo = (e, onDomoAdded) => {
 
     const name = e.target.querySelector('#domoName').value;
     const age = e.target.querySelector('#domoAge').value;
+    const level = e.target.querySelector('#domoLevel').value;
 
-    if(!name || !age) {
+    if(!name || !age || !level) {
         helper.handleError('All fields are required');
         return false;
     }
 
-    helper.sendPost(e.target.action, {name, age}, onDomoAdded);
+    console.log('submitted');
+    helper.sendPost(e.target.action, {name, age, level}, onDomoAdded);
     return false;
 };
 
@@ -31,8 +33,10 @@ const DomoForm = (props) => {
             <label htmlFor="name">Name: </label>
             <input type="text" name="name" id="domoName" placeholder='Domo Name' />
             <label htmlFor="age">Age: </label>
-            <input type="number" name="age" min='0' id="domoAge" />
-            <input type="submit" name="" id=""className='makeDomoSubmit' value='Make Domo' />
+            <input type="number" name="age" min='0' id="domoAge" placeholder='Domo Age' />
+            <label htmlFor="level">Level: </label>
+            <input type="number" name='level' min='0' id='domoLevel' placeholder='Domo Level' />
+            <input type="submit" className='makeDomoSubmit' value='Make Domo' />
         </form>
     );
 };
@@ -63,6 +67,7 @@ const DomoList = (props) => {
                 <img src="/assets/img/domoface.jpeg" alt="domo face" className='domoFace' />
                 <h3 className='domoName'>Name: {domo.name}</h3>
                 <h3 className='domoAge'>Age: {domo.age}</h3>
+                <h3 className='domoLevel'>Level: {domo.level}</h3>
             </div>
         );
     });
