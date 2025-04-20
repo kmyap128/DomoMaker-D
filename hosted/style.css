@@ -272,3 +272,26 @@ h3.domoLevel {
 .domo:last-child {
     margin-bottom:10px;
 }
+
+#aboutContent {
+    padding: 50px;
+}
+
+#aboutImg {
+    width: 300px;
+    height: 300px;
+    float: left;
+}
+
+#aboutText {
+    float: left;
+    margin-left: 50px;
+}
+
+#aboutText h1 {
+    font-size: 3em;
+}
+
+#aboutText p {
+    font-size: 1.25em;
+}
